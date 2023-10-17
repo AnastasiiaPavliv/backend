@@ -12,4 +12,4 @@ const workSchema =new Schema({
         type:String
     }
 })
-export const Works = model("works", workSchema)
+export const Works = model("scientific_works", workSchema)
