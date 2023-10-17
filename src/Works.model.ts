@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-const userSchema =new Schema({
+const workSchema =new Schema({
     first_name:{
         type:String
     }, last_name:{
@@ -12,4 +12,4 @@ const userSchema =new Schema({
         type:String
     }
 })
-export const User = model("user", userSchema)
+export const Works = model("works", workSchema)
