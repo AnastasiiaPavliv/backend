@@ -11,7 +11,17 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/works", workRouter)
+// Оголошення маршрутів та обробника запитів
+app.get('/works', async (req:Request, res:Response,  next: NextFunction):Promise<Response<IWork[]>> => {
+    try {
+        const works = await workService.getAll();
 
+        console.log(works)
+        return res.json(works);
+    } catch (e) {
+        res.status(400).json(e.message)
+    }
+});
 
 // Прослуховування сервера
 const port = 3000;
