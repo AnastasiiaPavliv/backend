@@ -2,6 +2,7 @@ import {Response, Request, NextFunction} from 'express';
 import {Works} from "./Works.model";
 import {workService} from "./work.service";
 import {IWork} from "./works.type";
+import {workRouter} from "./works.router";
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -9,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use("/works", workRouter)
 // Оголошення маршрутів та обробника запитів
 app.get('/works', async (req:Request, res:Response,  next: NextFunction):Promise<Response<IWork[]>> => {
     try {
