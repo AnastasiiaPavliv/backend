@@ -6,9 +6,9 @@ class WorkController {
     public async getAll(req: Request, res: Response, next: NextFunction):
         Promise<Response<IWork[]>> {
         try {
-            const users = await workService.getAll();
+            const works = await workService.getAll();
 
-            return res.json(users);
+            return res.json(works);
 
         } catch (e) {
             next(e)
