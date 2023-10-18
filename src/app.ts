@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/works", workRouter)
+
 
 app.use((req:Request, res:Response, next:NextFunction) => {
     res.header('Access-Control-Allow-Origin', '*'); // Дозволяє доступ з будь-якого домену
@@ -25,7 +25,9 @@ app.use(cors({
     credentials: true,
     origin: '*'
 }));
+
 app.use(cors(corsOptions))
+app.use("/works", workRouter)
 // Прослуховування сервера
 const port = 7000;
 app.listen(port,async () => {
